@@ -77,18 +77,18 @@ export default function ServicesSection() {
   }, []);
 
   return (
-    <section id="services" className="relative py-28 md:py-36" ref={sectionRef}>
+    <section id="services" className="relative py-20 md:py-36" ref={sectionRef}>
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-surface/50 to-background" />
-      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-accent-secondary/5 rounded-full blur-[150px]" />
+      <div className="absolute top-1/2 right-0 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-accent-secondary/5 rounded-full blur-[100px] sm:blur-[150px]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section header */}
         <div className="text-center mb-20">
           <span className="text-accent-primary text-sm font-semibold uppercase tracking-widest mb-4 block">
             What We Build
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-6">
             Our <span className="gradient-text">3D Services</span>
           </h2>
           <p className="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
@@ -102,7 +102,7 @@ export default function ServicesSection() {
           {services.map((service, i) => (
             <div
               key={service.title}
-              className="service-card glass-card rounded-2xl p-8 group relative overflow-hidden transition-all duration-700 ease-out"
+              className="service-card glass-card rounded-2xl p-6 md:p-8 group relative overflow-hidden transition-all duration-700 ease-out"
               style={{
                 opacity: 0,
                 transform: "translateY(30px)",

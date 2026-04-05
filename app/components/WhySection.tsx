@@ -61,17 +61,17 @@ export default function WhySection() {
   }, []);
 
   return (
-    <section id="why-3d" className="relative py-28 md:py-36 grid-bg" ref={sectionRef}>
+    <section id="why-3d" className="relative py-20 md:py-36 grid-bg" ref={sectionRef}>
       {/* Background accent */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-accent-primary/5 rounded-full blur-[150px]" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-accent-primary/5 rounded-full blur-[100px] sm:blur-[150px]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section header */}
         <div className="text-center mb-20">
           <span className="text-accent-secondary text-sm font-semibold uppercase tracking-widest mb-4 block">
             The Future is 3D
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-6">
             Why <span className="gradient-text">3D Matters</span> for Your Business
           </h2>
           <p className="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
@@ -92,7 +92,7 @@ export default function WhySection() {
                 transitionDelay: `${i * 150}ms`,
               }}
             >
-              <div className="flex items-start gap-6">
+              <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
                 <div className="use-case-icon shrink-0 !mb-0 text-3xl">
                   {reason.icon}
                 </div>

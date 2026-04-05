@@ -33,10 +33,10 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative py-28 md:py-36 grid-bg" ref={ref}>
-      <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-accent-primary/5 rounded-full blur-[150px]" />
+    <section id="contact" className="relative py-20 md:py-36 grid-bg" ref={ref}>
+      <div className="absolute top-0 right-1/4 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-accent-primary/5 rounded-full blur-[100px] sm:blur-[150px]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Left side - Info */}
           <div
@@ -46,7 +46,7 @@ export default function ContactSection() {
             <span className="text-accent-secondary text-sm font-semibold uppercase tracking-widest mb-4 block">
               Let&apos;s Build Together
             </span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-6">
               Ready to go{" "}
               <span className="gradient-text">3D?</span>
             </h2>
@@ -114,7 +114,7 @@ export default function ContactSection() {
           >
             <form
               onSubmit={handleSubmit}
-              className="glass-card rounded-2xl p-8 md:p-10 space-y-6"
+              className="glass-card rounded-2xl p-6 md:p-10 space-y-6"
               id="contact-form"
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

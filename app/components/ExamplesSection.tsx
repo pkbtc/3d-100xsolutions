@@ -65,17 +65,17 @@ export default function ExamplesSection() {
   }, []);
 
   return (
-    <section id="examples" className="relative py-28 md:py-36" ref={ref}>
+    <section id="examples" className="relative py-20 md:py-36" ref={ref}>
       <div className="absolute inset-0 bg-gradient-to-b from-background via-surface/30 to-background" />
-      <div className="absolute top-1/3 left-0 w-[400px] h-[400px] bg-accent-primary/5 rounded-full blur-[150px]" />
+      <div className="absolute top-1/3 left-0 w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bg-accent-primary/5 rounded-full blur-[80px] sm:blur-[150px]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section header */}
         <div className="text-center mb-20">
           <span className="text-accent-primary text-sm font-semibold uppercase tracking-widest mb-4 block">
             Inspiration
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-6">
             3D in <span className="gradient-text">Action</span>
           </h2>
           <p className="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
@@ -85,7 +85,7 @@ export default function ExamplesSection() {
         </div>
 
         {/* Examples grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 lg:gap-8">
           {examples.map((example, i) => (
             <a
               key={example.title}

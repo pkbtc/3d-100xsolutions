@@ -93,16 +93,16 @@ export default function UseCasesSection() {
   }, []);
 
   return (
-    <section id="use-cases" className="relative py-28 md:py-36 grid-bg" ref={ref}>
-      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-accent-tertiary/5 rounded-full blur-[150px]" />
+    <section id="use-cases" className="relative py-20 md:py-36 grid-bg" ref={ref}>
+      <div className="absolute bottom-0 left-1/4 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-accent-tertiary/5 rounded-full blur-[100px] sm:blur-[150px]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section header */}
         <div className="text-center mb-20">
           <span className="text-accent-tertiary text-sm font-semibold uppercase tracking-widest mb-4 block">
             Industries We Serve
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-6">
             3D for <span className="gradient-text">Every Business</span>
           </h2>
           <p className="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
@@ -112,7 +112,7 @@ export default function UseCasesSection() {
         </div>
 
         {/* Use cases grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {useCases.map((uc, i) => (
             <div
               key={uc.title}

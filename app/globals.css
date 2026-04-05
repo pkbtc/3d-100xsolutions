@@ -362,8 +362,46 @@ body {
 }
 
 /* ========== RESPONSIVE ========== */
+
+/* --- Small phones (max-width: 480px) --- */
+@media (max-width: 480px) {
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+  }
+
+  .use-case-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.6rem;
+    border-radius: 14px;
+    margin-bottom: 1rem;
+  }
+
+  .glass-card:hover {
+    transform: none;
+  }
+}
+
+/* --- Tablets & below (max-width: 768px) --- */
 @media (max-width: 768px) {
   .hero-bg::before {
     animation: none;
+  }
+
+  .glass-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .use-case-icon {
+    width: 64px;
+    height: 64px;
+    font-size: 1.8rem;
+    border-radius: 16px;
+  }
+
+  .grid-bg {
+    background-size: 40px 40px;
   }
 }
