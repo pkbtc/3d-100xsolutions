@@ -31,10 +31,12 @@ export default function SplineScene({
       <div className={`flex items-center justify-center ${className}`}>
         <div className="text-center p-8">
           <div className="text-5xl mb-4">⚡</div>
-          <p className="text-text-secondary text-sm">
+          <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
             3D scene is loading...
             <br />
-            <span className="text-text-muted text-xs">Please refresh if it takes too long</span>
+            <span className="text-xs" style={{ color: "var(--text-muted)" }}>
+              Please refresh if it takes too long
+            </span>
           </p>
         </div>
       </div>
@@ -51,10 +53,20 @@ export default function SplineScene({
       {!loaded && (
         <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
           <div className="relative">
-            <div className="w-20 h-20 rounded-full border-2 border-accent-primary/20 border-t-accent-primary animate-spin" />
-            <div className="absolute inset-0 w-20 h-20 rounded-full border-2 border-accent-secondary/15 border-b-accent-secondary animate-spin" style={{ animationDirection: "reverse", animationDuration: "1.5s" }} />
+            <div
+              className="w-16 h-16 rounded-full animate-spin"
+              style={{
+                border: "2px solid rgba(255,255,255,0.06)",
+                borderTopColor: "rgba(255,255,255,0.25)",
+              }}
+            />
           </div>
-          <p className="text-text-muted text-sm mt-6 animate-pulse">Loading 3D Experience...</p>
+          <p
+            className="text-xs mt-5 animate-pulse font-medium"
+            style={{ color: "var(--text-muted)" }}
+          >
+            Loading 3D Experience...
+          </p>
         </div>
       )}
 
@@ -67,19 +79,39 @@ export default function SplineScene({
         />
       </div>
 
-      {/* Controls hint */}
+      {/* Controls hint — glass pill */}
       {showControls && loaded && (
-        <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 flex items-center justify-center gap-3 sm:gap-4 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-surface-glass backdrop-blur-xl border border-white/10 opacity-0 animate-fade-in z-50 w-max shadow-xl"
-          style={{ animationDelay: "1s", animationFillMode: "forwards" }}
+        <div
+          className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 flex items-center justify-center gap-3 sm:gap-4 px-4 sm:px-5 py-2 sm:py-2.5 opacity-0 animate-fade-in z-50 w-max"
+          style={{
+            animationDelay: "1s",
+            animationFillMode: "forwards",
+            background: "rgba(255,255,255,0.06)",
+            backdropFilter: "blur(40px)",
+            WebkitBackdropFilter: "blur(40px)",
+            border: "1px solid rgba(255,255,255,0.08)",
+            borderRadius: "var(--radius-pill)",
+            boxShadow:
+              "0 4px 16px rgba(0,0,0,0.20), inset 0 1px 0 rgba(255,255,255,0.06)",
+          }}
         >
-          <span className="flex items-center gap-1.5 text-text-muted text-[11px] sm:text-xs font-medium whitespace-nowrap">
+          <span
+            className="flex items-center gap-1.5 text-[11px] sm:text-xs font-medium whitespace-nowrap"
+            style={{ color: "var(--text-muted)" }}
+          >
             <svg width="14" height="14" className="w-3.5 h-3.5 sm:w-4 sm:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               <path d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
             </svg>
             Drag to rotate
           </span>
-          <span className="w-px h-3 sm:h-4 bg-white/15" />
-          <span className="flex items-center justify-center gap-1.5 text-text-muted text-[11px] sm:text-xs font-medium whitespace-nowrap">
+          <span
+            className="w-px h-3 sm:h-4"
+            style={{ background: "rgba(255,255,255,0.10)" }}
+          />
+          <span
+            className="flex items-center justify-center gap-1.5 text-[11px] sm:text-xs font-medium whitespace-nowrap"
+            style={{ color: "var(--text-muted)" }}
+          >
             <svg width="14" height="14" className="w-3.5 h-3.5 sm:w-4 sm:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               <circle cx="11" cy="11" r="8" />
               <path d="m21 21-4.35-4.35M11 8v6M8 11h6" />
@@ -89,14 +121,21 @@ export default function SplineScene({
         </div>
       )}
 
-      {/* Watermark Blocker Overlay (Precise size for mobile/desktop) */}
+      {/* Watermark Blocker */}
       {loaded && (
-        <div className="absolute bottom-4 right-4 w-[135px] h-[36px] z-40 rounded-lg bg-surface/90 backdrop-blur-md opacity-0 animate-fade-in pointer-events-none" style={{ animationDelay: "1s", animationFillMode: "forwards" }} />
+        <div
+          className="absolute bottom-4 right-4 w-[135px] h-[36px] z-40 opacity-0 animate-fade-in pointer-events-none"
+          style={{
+            animationDelay: "1s",
+            animationFillMode: "forwards",
+            background: "rgba(15,15,20,0.90)",
+            backdropFilter: "blur(20px)",
+            borderRadius: "var(--radius-sm)",
+          }}
+        />
       )}
 
-
-
-      {/* Hide Spline watermark via CSS (Fallback if it's DOM-based) */}
+      {/* Hide Spline watermark via CSS */}
       <style>{`
         #logo,
         canvas + div,

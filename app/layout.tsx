@@ -32,6 +32,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} antialiased`} suppressHydrationWarning>
       <body className="min-h-screen flex flex-col" suppressHydrationWarning>
+        {/* Ambient background that glass elements interact with */}
+        <div className="ambient-bg" aria-hidden="true" />
         {children}
       </body>
     </html>

@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="flex-1">
+      <main className="flex-1 relative z-10">
         <HeroSection />
         <ShowcaseSection />
         <hr className="section-divider" />

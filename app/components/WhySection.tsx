@@ -7,7 +7,7 @@ const reasons = [
     icon: "🎯",
     title: "10x Customer Engagement",
     description:
-      "Interactive 3D experiences keep visitors on your site 3x longer than traditional websites. Users can explore, rotate, and interact with your space — creating emotional connections that drive conversions.",
+      "Interactive 3D experiences keep visitors on your site 3x longer than traditional websites. Users explore, rotate, and interact — creating emotional connections that drive conversions.",
     stat: "300%",
     statLabel: "longer session time",
   },
@@ -23,7 +23,7 @@ const reasons = [
     icon: "🚀",
     title: "Competitive Edge",
     description:
-      "Only 2% of businesses use 3D web experiences. Be the first in your industry to offer immersive digital experiences and stand miles ahead of your competition.",
+      "Only 2% of businesses use 3D web experiences. Be the first in your industry to offer immersive digital experiences and stand miles ahead.",
     stat: "2%",
     statLabel: "market adoption",
   },
@@ -31,7 +31,7 @@ const reasons = [
     icon: "💰",
     title: "Higher Conversion Rates",
     description:
-      "Businesses with 3D experiences see up to 40% higher conversion rates. When customers can truly experience your offering online, they're far more likely to take action.",
+      "Businesses with 3D experiences see up to 40% higher conversion rates. When customers can truly experience your offering online, they take action.",
     stat: "40%",
     statLabel: "more conversions",
   },
@@ -61,51 +61,84 @@ export default function WhySection() {
   }, []);
 
   return (
-    <section id="why-3d" className="relative py-20 md:py-36 grid-bg" ref={sectionRef}>
-      {/* Background accent */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-accent-primary/5 rounded-full blur-[100px] sm:blur-[150px]" />
+    <section id="why-3d" className="relative py-24 md:py-36" ref={sectionRef}>
+      {/* Ambient glow */}
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none"
+        style={{
+          width: "500px",
+          height: "500px",
+          background: "radial-gradient(circle, rgba(94,158,255,0.04) 0%, transparent 70%)",
+          filter: "blur(100px)",
+        }}
+      />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section header */}
         <div className="text-center mb-20">
-          <span className="text-accent-secondary text-sm font-semibold uppercase tracking-widest mb-4 block">
+          <span
+            className="text-xs font-semibold uppercase tracking-[0.2em] mb-4 block"
+            style={{ color: "var(--accent)" }}
+          >
             The Future is 3D
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-6">
+          <h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+            style={{ color: "var(--text-primary)" }}
+          >
             Why <span className="gradient-text">3D Matters</span> for Your Business
           </h2>
-          <p className="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+          <p
+            className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed"
+            style={{ color: "var(--text-secondary)" }}
+          >
             In a world of flat websites, 3D experiences cut through the noise and
             make your business unforgettable.
           </p>
         </div>
 
         {/* Cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
           {reasons.map((reason, i) => (
             <div
               key={reason.title}
-              className="why-card glass-card rounded-2xl p-8 md:p-10 group transition-all duration-700 ease-out"
+              className="why-card glass-card p-8 md:p-10 group transition-all duration-700 ease-out"
               style={{
                 opacity: 0,
-                transform: "translateY(30px)",
-                transitionDelay: `${i * 150}ms`,
+                transform: "translateY(24px)",
+                transitionDelay: `${i * 120}ms`,
               }}
             >
-              <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
-                <div className="use-case-icon shrink-0 !mb-0 text-3xl">
+              <div className="flex flex-col sm:flex-row items-start gap-5">
+                <div className="glass-icon">
                   {reason.icon}
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl md:text-2xl font-bold text-text-primary mb-3 group-hover:text-accent-primary transition-colors duration-300">
+                  <h3
+                    className="text-xl md:text-2xl font-semibold mb-3 transition-colors duration-300"
+                    style={{ color: "var(--text-primary)" }}
+                  >
                     {reason.title}
                   </h3>
-                  <p className="text-text-secondary leading-relaxed mb-4">
+                  <p
+                    className="leading-relaxed mb-5 text-sm md:text-base"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
                     {reason.description}
                   </p>
-                  <div className="flex items-baseline gap-2">
-                    <span className="stat-number text-3xl font-bold">{reason.stat}</span>
-                    <span className="text-text-muted text-sm">{reason.statLabel}</span>
+                  <div className="flex items-baseline gap-2.5">
+                    <span
+                      className="stat-number text-3xl font-bold"
+                      style={{ color: "var(--text-primary)" }}
+                    >
+                      {reason.stat}
+                    </span>
+                    <span
+                      className="text-xs font-medium"
+                      style={{ color: "var(--text-muted)" }}
+                    >
+                      {reason.statLabel}
+                    </span>
                   </div>
                 </div>
               </div>

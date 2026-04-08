@@ -1,31 +1,70 @@
+"use client";
+
 export default function Footer() {
   return (
-    <footer className="relative py-12 sm:py-16 border-t border-white/5">
+    <footer
+      className="relative py-14 sm:py-18 z-10"
+      style={{
+        borderTop: "1px solid rgba(255,255,255,0.05)",
+      }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-14">
           {/* Brand */}
           <div className="md:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent-primary to-accent-secondary flex items-center justify-center text-white font-bold text-lg">
+            <div className="flex items-center gap-2.5 mb-5">
+              <div
+                className="w-9 h-9 rounded-xl flex items-center justify-center text-sm font-bold"
+                style={{
+                  background: "rgba(255, 255, 255, 0.08)",
+                  border: "1px solid rgba(255, 255, 255, 0.10)",
+                  color: "var(--text-primary)",
+                  boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)",
+                }}
+              >
                 3D
               </div>
-              <span className="text-text-primary font-bold text-xl tracking-tight">
-                100x<span className="text-accent-primary">Solutions</span>
+              <span
+                className="font-semibold text-lg tracking-tight"
+                style={{ color: "var(--text-primary)" }}
+              >
+                100x
+                <span style={{ color: "var(--accent)" }}>Solutions</span>
               </span>
             </div>
-            <p className="text-text-secondary text-sm leading-relaxed max-w-sm mb-6">
+            <p
+              className="text-sm leading-relaxed max-w-sm mb-6"
+              style={{ color: "var(--text-secondary)" }}
+            >
               We build immersive 3D web experiences that help businesses attract
               more customers, increase engagement, and stand out in a crowded
               digital landscape.
             </p>
-            <div className="flex gap-4">
-              {["Twitter", "LinkedIn", "Instagram"].map((social) => (
+            <div className="flex gap-3">
+              {["T", "L", "I"].map((letter) => (
                 <a
-                  key={social}
+                  key={letter}
                   href="#"
-                  className="w-9 h-9 rounded-lg bg-surface-elevated border border-white/5 flex items-center justify-center text-text-muted text-xs hover:border-accent-primary/30 hover:text-accent-primary transition-all duration-300"
+                  className="w-9 h-9 rounded-xl flex items-center justify-center text-xs font-medium transition-all duration-300"
+                  style={{
+                    background: "rgba(255,255,255,0.04)",
+                    border: "1px solid rgba(255,255,255,0.06)",
+                    color: "var(--text-muted)",
+                  }}
+                  onMouseEnter={(e) => {
+                    const el = e.currentTarget;
+                    el.style.background = "rgba(255,255,255,0.08)";
+                    el.style.borderColor = "rgba(255,255,255,0.12)";
+                    el.style.color = "var(--text-primary)";
+                  }}
+                  onMouseLeave={(e) => {
+                    const el = e.currentTarget;
+                    el.style.background = "rgba(255,255,255,0.04)";
+                    el.style.borderColor = "rgba(255,255,255,0.06)";
+                    el.style.color = "var(--text-muted)";
+                  }}
                 >
-                  {social[0]}
+                  {letter}
                 </a>
               ))}
             </div>
@@ -33,7 +72,10 @@ export default function Footer() {
 
           {/* Links */}
           <div>
-            <h4 className="text-text-primary font-semibold text-sm mb-4 uppercase tracking-wider">
+            <h4
+              className="text-xs font-semibold mb-5 uppercase tracking-[0.15em]"
+              style={{ color: "var(--text-primary)" }}
+            >
               Services
             </h4>
             <ul className="space-y-3">
@@ -46,7 +88,14 @@ export default function Footer() {
                 <li key={item}>
                   <a
                     href="#services"
-                    className="text-text-secondary text-sm hover:text-accent-primary transition-colors duration-300"
+                    className="text-sm transition-colors duration-300"
+                    style={{ color: "var(--text-secondary)" }}
+                    onMouseEnter={(e) => {
+                      (e.target as HTMLElement).style.color = "var(--text-primary)";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.target as HTMLElement).style.color = "var(--text-secondary)";
+                    }}
                   >
                     {item}
                   </a>
@@ -56,7 +105,10 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-text-primary font-semibold text-sm mb-4 uppercase tracking-wider">
+            <h4
+              className="text-xs font-semibold mb-5 uppercase tracking-[0.15em]"
+              style={{ color: "var(--text-primary)" }}
+            >
               Company
             </h4>
             <ul className="space-y-3">
@@ -69,7 +121,14 @@ export default function Footer() {
                 <li key={item.label}>
                   <a
                     href={item.href}
-                    className="text-text-secondary text-sm hover:text-accent-primary transition-colors duration-300"
+                    className="text-sm transition-colors duration-300"
+                    style={{ color: "var(--text-secondary)" }}
+                    onMouseEnter={(e) => {
+                      (e.target as HTMLElement).style.color = "var(--text-primary)";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.target as HTMLElement).style.color = "var(--text-secondary)";
+                    }}
                   >
                     {item.label}
                   </a>
@@ -80,23 +139,32 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
-          <p className="text-text-muted text-sm">
+        <div
+          className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left"
+          style={{
+            borderTop: "1px solid rgba(255,255,255,0.04)",
+          }}
+        >
+          <p className="text-sm" style={{ color: "var(--text-muted)" }}>
             © {new Date().getFullYear()} 100xSolutions. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <a
-              href="#"
-              className="text-text-muted text-sm hover:text-text-secondary transition-colors"
-            >
-              Privacy Policy
-            </a>
-            <a
-              href="#"
-              className="text-text-muted text-sm hover:text-text-secondary transition-colors"
-            >
-              Terms of Service
-            </a>
+            {["Privacy Policy", "Terms of Service"].map((text) => (
+              <a
+                key={text}
+                href="#"
+                className="text-sm transition-colors duration-300"
+                style={{ color: "var(--text-muted)" }}
+                onMouseEnter={(e) => {
+                  (e.target as HTMLElement).style.color = "var(--text-secondary)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.target as HTMLElement).style.color = "var(--text-muted)";
+                }}
+              >
+                {text}
+              </a>
+            ))}
           </div>
         </div>
       </div>

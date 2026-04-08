@@ -33,95 +33,125 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative py-20 md:py-36 grid-bg" ref={ref}>
-      <div className="absolute top-0 right-1/4 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-accent-primary/5 rounded-full blur-[100px] sm:blur-[150px]" />
+    <section id="contact" className="relative py-24 md:py-36" ref={ref}>
+      {/* Ambient glow */}
+      <div
+        className="absolute top-0 right-1/4 pointer-events-none"
+        style={{
+          width: "500px",
+          height: "500px",
+          background: "radial-gradient(circle, rgba(94,158,255,0.04) 0%, transparent 70%)",
+          filter: "blur(100px)",
+        }}
+      />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Left side - Info */}
           <div
             className="contact-animate transition-all duration-700 ease-out"
-            style={{ opacity: 0, transform: "translateY(30px)" }}
+            style={{ opacity: 0, transform: "translateY(24px)" }}
           >
-            <span className="text-accent-secondary text-sm font-semibold uppercase tracking-widest mb-4 block">
+            <span
+              className="text-xs font-semibold uppercase tracking-[0.2em] mb-4 block"
+              style={{ color: "var(--accent)" }}
+            >
               Let&apos;s Build Together
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-6">
+            <h2
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+              style={{ color: "var(--text-primary)" }}
+            >
               Ready to go{" "}
               <span className="gradient-text">3D?</span>
             </h2>
-            <p className="text-text-secondary text-lg leading-relaxed mb-10">
+            <p
+              className="text-lg leading-relaxed mb-12"
+              style={{ color: "var(--text-secondary)" }}
+            >
               Tell us about your project and we&apos;ll show you how a 3D web
               experience can transform your business. Free consultation, no
               obligations.
             </p>
 
-            {/* Contact info */}
-            <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-accent-primary/10 border border-accent-primary/20 flex items-center justify-center text-xl">
-                  📧
+            {/* Contact info — glass cards */}
+            <div className="space-y-4">
+              {[
+                {
+                  icon: "📧",
+                  label: "Email us at",
+                  value: "hello@100xsolutions.in",
+                  href: "mailto:hello@100xsolutions.in",
+                },
+                {
+                  icon: "📱",
+                  label: "Call us",
+                  value: "+91 98765 43210",
+                  href: "tel:+919876543210",
+                },
+                {
+                  icon: "🌐",
+                  label: "Visit",
+                  value: "100xsolutions.in",
+                  href: "https://100xsolutions.in",
+                },
+              ].map((item) => (
+                <div
+                  key={item.label}
+                  className="flex items-center gap-4 p-4 rounded-2xl transition-all duration-300 hover:bg-white/[0.03]"
+                  style={{
+                    background: "rgba(255,255,255,0.02)",
+                    border: "1px solid rgba(255,255,255,0.05)",
+                    borderRadius: "var(--radius-md)",
+                  }}
+                >
+                  <div className="glass-icon !w-11 !h-11 text-lg">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <div
+                      className="text-xs mb-0.5"
+                      style={{ color: "var(--text-muted)" }}
+                    >
+                      {item.label}
+                    </div>
+                    <a
+                      href={item.href}
+                      target={item.href.startsWith("http") ? "_blank" : undefined}
+                      rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                      className="text-sm font-medium transition-colors duration-300"
+                      style={{ color: "var(--text-primary)" }}
+                      onMouseEnter={(e) => {
+                        (e.target as HTMLElement).style.color = "var(--accent)";
+                      }}
+                      onMouseLeave={(e) => {
+                        (e.target as HTMLElement).style.color = "var(--text-primary)";
+                      }}
+                    >
+                      {item.value}
+                    </a>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-text-muted text-sm">Email us at</div>
-                  <a
-                    href="mailto:hello@100xsolutions.in"
-                    className="text-text-primary font-medium hover:text-accent-primary transition-colors"
-                  >
-                    hello@100xsolutions.in
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-accent-secondary/10 border border-accent-secondary/20 flex items-center justify-center text-xl">
-                  📱
-                </div>
-                <div>
-                  <div className="text-text-muted text-sm">Call us</div>
-                  <a
-                    href="tel:+919876543210"
-                    className="text-text-primary font-medium hover:text-accent-secondary transition-colors"
-                  >
-                    +91 98765 43210
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-accent-tertiary/10 border border-accent-tertiary/20 flex items-center justify-center text-xl">
-                  🌐
-                </div>
-                <div>
-                  <div className="text-text-muted text-sm">Visit</div>
-                  <a
-                    href="https://100xsolutions.in"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-text-primary font-medium hover:text-accent-tertiary transition-colors"
-                  >
-                    100xsolutions.in
-                  </a>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 
           {/* Right side - Form */}
           <div
             className="contact-animate transition-all duration-700 ease-out"
-            style={{ opacity: 0, transform: "translateY(30px)", transitionDelay: "200ms" }}
+            style={{ opacity: 0, transform: "translateY(24px)", transitionDelay: "200ms" }}
           >
             <form
               onSubmit={handleSubmit}
-              className="glass-card rounded-2xl p-6 md:p-10 space-y-6"
+              className="glass-panel p-7 md:p-10 space-y-5"
               id="contact-form"
             >
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-text-secondary text-sm font-medium mb-2"
+                    className="block text-xs font-medium mb-2"
+                    style={{ color: "var(--text-secondary)" }}
                   >
                     Your Name
                   </label>
@@ -130,13 +160,14 @@ export default function ContactSection() {
                     id="name"
                     required
                     placeholder="John Doe"
-                    className="w-full px-4 py-3 rounded-xl bg-surface-elevated border border-white/5 text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent-primary/50 focus:ring-1 focus:ring-accent-primary/20 transition-all duration-300"
+                    className="glass-input"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-text-secondary text-sm font-medium mb-2"
+                    className="block text-xs font-medium mb-2"
+                    style={{ color: "var(--text-secondary)" }}
                   >
                     Email
                   </label>
@@ -145,7 +176,7 @@ export default function ContactSection() {
                     id="email"
                     required
                     placeholder="john@company.com"
-                    className="w-full px-4 py-3 rounded-xl bg-surface-elevated border border-white/5 text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent-primary/50 focus:ring-1 focus:ring-accent-primary/20 transition-all duration-300"
+                    className="glass-input"
                   />
                 </div>
               </div>
@@ -153,16 +184,17 @@ export default function ContactSection() {
               <div>
                 <label
                   htmlFor="business"
-                  className="block text-text-secondary text-sm font-medium mb-2"
+                  className="block text-xs font-medium mb-2"
+                  style={{ color: "var(--text-secondary)" }}
                 >
                   Business Type
                 </label>
                 <select
                   id="business"
-                  className="w-full px-4 py-3 rounded-xl bg-surface-elevated border border-white/5 text-text-primary focus:outline-none focus:border-accent-primary/50 focus:ring-1 focus:ring-accent-primary/20 transition-all duration-300 appearance-none cursor-pointer"
+                  className="glass-input cursor-pointer appearance-none"
                   defaultValue=""
                 >
-                  <option value="" disabled className="text-text-muted">
+                  <option value="" disabled style={{ color: "var(--text-muted)" }}>
                     Select your industry
                   </option>
                   <option value="restaurant">Restaurant / Cafe</option>
@@ -179,7 +211,8 @@ export default function ContactSection() {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-text-secondary text-sm font-medium mb-2"
+                  className="block text-xs font-medium mb-2"
+                  style={{ color: "var(--text-secondary)" }}
                 >
                   Tell us about your project
                 </label>
@@ -188,7 +221,7 @@ export default function ContactSection() {
                   rows={4}
                   required
                   placeholder="Describe what you'd like to build..."
-                  className="w-full px-4 py-3 rounded-xl bg-surface-elevated border border-white/5 text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent-primary/50 focus:ring-1 focus:ring-accent-primary/20 transition-all duration-300 resize-none"
+                  className="glass-input resize-none"
                 />
               </div>
 
@@ -201,7 +234,10 @@ export default function ContactSection() {
               </button>
 
               {submitted && (
-                <p className="text-accent-secondary text-sm text-center animate-fade-in">
+                <p
+                  className="text-sm text-center animate-fade-in"
+                  style={{ color: "var(--accent)" }}
+                >
                   Thank you! We&apos;ll get back to you within 24 hours.
                 </p>
               )}
