@@ -1,6 +1,12 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const examples = [
   {
@@ -9,7 +15,11 @@ const examples = [
     description:
       "Explore a fine-dining restaurant in full 3D — from the entrance lobby to private dining rooms. Preview the ambiance before reservation.",
     url: "https://www.matterport.com/industries/restaurants",
-    image: "🍽️",
+    icon: (
+      <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h7v7H3V3zm11 0h7v7h-7V3zM3 14h7v7H3v-7zm11 0h7v7h-7v-7z" />
+      </svg>
+    ),
   },
   {
     title: "Luxury Apartment Walkthrough",
@@ -17,7 +27,11 @@ const examples = [
     description:
       "A complete 3D walkthrough of a luxury apartment complex. Explore floor plans, balcony views, and common areas on any device.",
     url: "https://www.matterport.com/industries/real-estate",
-    image: "🏢",
+    icon: (
+      <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+      </svg>
+    ),
   },
   {
     title: "Car Configurator",
@@ -25,7 +39,11 @@ const examples = [
     description:
       "Interactive 3D car showcase where users pick colors, wheels, and interiors. Rotate, zoom, and customize before visiting.",
     url: "https://www.bmw.com/en/automotive-life/car-configurator.html",
-    image: "🚗",
+    icon: (
+      <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+      </svg>
+    ),
   },
   {
     title: "Furniture Showroom",
@@ -33,63 +51,89 @@ const examples = [
     description:
       "A virtual showroom where customers browse furniture in 3D, see it in different room settings, and get exact measurements.",
     url: "https://www.ikea.com",
-    image: "🛋️",
+    icon: (
+      <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+      </svg>
+    ),
   },
 ];
 
 export default function ExamplesSection() {
-  const ref = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const el = entry.target as HTMLElement;
-            el.style.opacity = "1";
-            el.style.transform = "translateY(0)";
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      // Header
+      gsap.fromTo(".examples-header", 
+        { y: 50, opacity: 0 },
+        {
+          scrollTrigger: {
+            trigger: ".examples-header",
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+          y: 0,
+          opacity: 1,
+          duration: 0.9,
+          ease: "power3.out",
+        }
+      );
+
+      // Cards slide in from alternating sides
+      const cards = gsap.utils.toArray<HTMLElement>(".example-card");
+      cards.forEach((card, i) => {
+        gsap.fromTo(card, 
+          { x: i % 2 === 0 ? -60 : 60, y: 30, opacity: 0 },
+          {
+            scrollTrigger: {
+              trigger: card,
+              start: "top 88%",
+              toggleActions: "play none none none",
+            },
+            x: 0,
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: "power3.out",
           }
-        });
-      },
-      { threshold: 0.05, rootMargin: "0px 0px -30px 0px" }
-    );
+        );
+      });
 
-    const items = ref.current?.querySelectorAll(".example-card");
-    items?.forEach((item) => observer.observe(item));
+      // Note text
+      gsap.fromTo(".examples-note", 
+        { opacity: 0, y: 20 },
+        {
+          scrollTrigger: {
+            trigger: ".examples-note",
+            start: "top 92%",
+            toggleActions: "play none none none",
+          },
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: "power2.out",
+        }
+      );
+    }, sectionRef);
 
-    return () => observer.disconnect();
+    return () => ctx.revert();
   }, []);
 
   return (
-    <section id="examples" className="relative py-24 md:py-36" ref={ref}>
-      {/* Ambient glow */}
-      <div
-        className="absolute top-1/3 left-0 pointer-events-none"
-        style={{
-          width: "350px",
-          height: "350px",
-          background: "radial-gradient(circle, rgba(94,158,255,0.04) 0%, transparent 70%)",
-          filter: "blur(100px)",
-        }}
-      />
-
+    <section id="examples" className="relative py-24 md:py-36" ref={sectionRef}>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section header */}
-        <div className="text-center mb-20">
-          <span
-            className="text-xs font-semibold uppercase tracking-[0.2em] mb-4 block"
-            style={{ color: "var(--accent)" }}
-          >
-            Inspiration
-          </span>
+        <div className="examples-header text-center mb-16">
+          <div className="section-label mx-auto">Inspiration</div>
           <h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-5 tracking-tight"
             style={{ color: "var(--text-primary)" }}
           >
             3D in <span className="gradient-text">Action</span>
           </h2>
           <p
-            className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed"
+            className="text-base md:text-lg max-w-2xl mx-auto leading-relaxed"
             style={{ color: "var(--text-secondary)" }}
           >
             See how businesses across industries are using 3D experiences
@@ -105,63 +149,47 @@ export default function ExamplesSection() {
               href={example.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="example-card glass-card overflow-hidden group block transition-all duration-700 ease-out"
-              style={{
-                opacity: 0,
-                transform: "translateY(24px)",
-                transitionDelay: `${i * 120}ms`,
-              }}
+              className="example-card glass-card overflow-hidden group block transition-all duration-300 hover:-translate-y-1"
               id={`example-${i}`}
             >
-              {/* Image area — glass surface */}
+              {/* Image area */}
               <div
-                className="h-48 md:h-56 flex items-center justify-center text-7xl relative overflow-hidden"
+                className="h-48 md:h-56 flex items-center justify-center relative overflow-hidden"
                 style={{
                   background: "rgba(255, 255, 255, 0.02)",
                 }}
               >
-                <span className="relative z-10 transition-transform duration-500 group-hover:scale-110">
-                  {example.image}
+                <span
+                  className="relative z-10 transition-transform duration-500 group-hover:scale-110"
+                  style={{ color: i % 2 === 0 ? "var(--primary)" : "var(--accent)", opacity: 0.4 }}
+                >
+                  {example.icon}
                 </span>
 
                 {/* Category badge */}
-                <div
-                  className="absolute top-4 left-4 px-3 py-1.5 rounded-full text-[11px] font-medium"
-                  style={{
-                    background: "rgba(255,255,255,0.06)",
-                    backdropFilter: "blur(20px)",
-                    border: "1px solid rgba(255,255,255,0.08)",
-                    color: "var(--text-secondary)",
-                  }}
-                >
+                <div className="absolute top-4 left-4 service-pill">
                   {example.category}
                 </div>
 
                 {/* External link icon */}
                 <div
-                  className="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm"
+                  className="absolute top-4 right-4 w-8 h-8 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm"
                   style={{
-                    background: "rgba(255,255,255,0.06)",
-                    backdropFilter: "blur(20px)",
-                    border: "1px solid rgba(255,255,255,0.08)",
-                    color: "var(--text-secondary)",
+                    background: "rgba(var(--primary-rgb), 0.1)",
+                    border: "1px solid rgba(var(--primary-rgb), 0.2)",
+                    color: "var(--primary)",
                   }}
                 >
                   ↗
                 </div>
               </div>
 
-              {/* Divider line */}
-              <div
-                style={{
-                  height: "1px",
-                  background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent)",
-                }}
-              />
+              {/* Divider */}
+              <div style={{ height: "1px", background: "var(--border)" }} />
 
               <div className="p-7 md:p-8">
                 <h3
-                  className="text-lg font-semibold mb-2 transition-colors duration-300"
+                  className="text-lg font-bold mb-2 transition-colors duration-300"
                   style={{ color: "var(--text-primary)" }}
                 >
                   {example.title}
@@ -179,7 +207,7 @@ export default function ExamplesSection() {
 
         {/* Note */}
         <p
-          className="text-center text-sm mt-12"
+          className="examples-note text-center text-sm mt-12"
           style={{ color: "var(--text-muted)" }}
         >
           These are illustrative examples. We build custom 3D experiences tailored to your unique needs.

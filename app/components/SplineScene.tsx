@@ -51,21 +51,37 @@ export default function SplineScene({
     >
       {/* Loading state */}
       {!loaded && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
-          <div className="relative">
+        <div className="absolute inset-0 flex flex-col items-center justify-center z-10" style={{ background: 'radial-gradient(circle, rgba(15,15,24,0.8) 0%, transparent 80%)' }}>
+          <div className="relative flex items-center justify-center">
+            {/* Outer glowing ring */}
             <div
-              className="w-16 h-16 rounded-full animate-spin"
+              className="absolute w-20 h-20 rounded-full animate-spin"
               style={{
-                border: "2px solid rgba(255,255,255,0.06)",
-                borderTopColor: "rgba(255,255,255,0.25)",
+                border: "2px solid transparent",
+                borderTopColor: "var(--accent)",
+                borderRightColor: "var(--accent-secondary)",
+                boxShadow: "0 0 15px var(--accent-soft)",
+                animationDuration: "1.5s"
               }}
             />
+            {/* Inner fast ring */}
+            <div
+              className="absolute w-12 h-12 rounded-full animate-spin"
+              style={{
+                border: "2px dashed rgba(255,255,255,0.2)",
+                borderTopColor: "#fff",
+                animationDuration: "2s",
+                animationDirection: "reverse"
+              }}
+            />
+            {/* Center dot pulse */}
+            <div className="w-3 h-3 rounded-full animate-pulse" style={{ background: "var(--accent)", boxShadow: "0 0 10px var(--accent)" }} />
           </div>
           <p
-            className="text-xs mt-5 animate-pulse font-medium"
-            style={{ color: "var(--text-muted)" }}
+            className="text-sm mt-8 animate-pulse font-medium tracking-widest uppercase"
+            style={{ color: "var(--text-secondary)", letterSpacing: "0.2em" }}
           >
-            Loading 3D Experience...
+            Initializing 3D
           </p>
         </div>
       )}
@@ -128,9 +144,10 @@ export default function SplineScene({
           style={{
             animationDelay: "1s",
             animationFillMode: "forwards",
-            background: "rgba(15,15,20,0.90)",
+            background: "rgba(8,8,12,0.95)",
             backdropFilter: "blur(20px)",
             borderRadius: "var(--radius-sm)",
+            boxShadow: "inset 0 1px 0 rgba(255,255,255,0.05)"
           }}
         />
       )}
