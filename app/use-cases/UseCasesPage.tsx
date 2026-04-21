@@ -71,7 +71,7 @@ function buildEcommerceScene(
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.4;
 
-  const scene = new THREE.Scene();
+  const scene = new THREE.Scene(); scene.background = new THREE.Color(0x0c0a06);
   const camera = new THREE.PerspectiveCamera(38, W / H, 0.1, 100);
   camera.position.set(0, 1.2, 7);
 
@@ -159,7 +159,7 @@ function buildEcommerceScene(
   scene.add(new THREE.Points(pGeo, new THREE.PointsMaterial({ color: GOLD, size: 0.025, transparent: true, opacity: 0.5 })));
 
   /* lights */
-  scene.add(new THREE.AmbientLight(0xfff8f0, 0.3));
+  scene.add(new THREE.AmbientLight(0xfff8f0, 0.9));
   const key = new THREE.PointLight(0xfff4e0, 5, 18); key.position.set(4, 6, 5); key.castShadow = true; scene.add(key);
   const fill = new THREE.PointLight(0xd4c0ff, 2, 14); fill.position.set(-5, 2, -4); scene.add(fill);
   const rim2 = new THREE.PointLight(GOLD, 1.5, 10); rim2.position.set(0, -3, 4); scene.add(rim2);
@@ -199,7 +199,7 @@ function buildRealEstateScene(
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.2;
 
-  const scene = new THREE.Scene();
+  const scene = new THREE.Scene(); scene.background = new THREE.Color(0x0c090a);
   const camera = new THREE.PerspectiveCamera(40, W / H, 0.1, 200);
   camera.position.set(7, 4, 14);
 
@@ -289,7 +289,7 @@ function buildRealEstateScene(
   });
 
   /* lights */
-  scene.add(new THREE.AmbientLight(0x1a2a3a, 0.7));
+  scene.add(new THREE.AmbientLight(0x3a5a7a, 1.4));
   const moon = new THREE.DirectionalLight(0xbbd4ff, 1.1); moon.position.set(-8, 14, 6); moon.castShadow = true; scene.add(moon);
 
   const onResize = () => {
@@ -320,7 +320,7 @@ function buildRestaurantScene(
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.1;
 
-  const scene = new THREE.Scene();
+  const scene = new THREE.Scene(); scene.background = new THREE.Color(0x0a0404);
   scene.fog = new THREE.FogExp2(0x0a0404, 0.06);
   const camera = new THREE.PerspectiveCamera(42, W / H, 0.1, 60);
   camera.position.set(0, 3.5, 8);
@@ -400,7 +400,7 @@ function buildRestaurantScene(
   });
 
   /* ambient lighting (warm restaurant) */
-  scene.add(new THREE.AmbientLight(0x3a1a05, 0.6));
+  scene.add(new THREE.AmbientLight(0x7a4a20, 1.4));
   const overhead = new THREE.PointLight(0xffe8cc, 1.5, 12); overhead.position.set(0, 4, 0); overhead.castShadow = true; scene.add(overhead);
   const fill = new THREE.PointLight(0xff9955, 1.2, 10); fill.position.set(-5, 2, -3); scene.add(fill);
 
@@ -438,7 +438,7 @@ function buildCarScene(
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.3;
 
-  const scene = new THREE.Scene();
+  const scene = new THREE.Scene(); scene.background = new THREE.Color(0x060b16);
   const camera = new THREE.PerspectiveCamera(38, W / H, 0.1, 80);
   camera.position.set(0, 1.5, 9);
 
@@ -522,8 +522,8 @@ function buildCarScene(
   });
 
   /* studio lights */
-  scene.add(new THREE.AmbientLight(0x222233, 0.5));
-  const k1 = new THREE.SpotLight(0xfff8f0, 4, 25, Math.PI / 6, 0.3); k1.position.set(6, 8, 4); k1.castShadow = true; scene.add(k1);
+  scene.add(new THREE.AmbientLight(0xaaaacc, 1.2));
+  const k1 = new THREE.SpotLight(0xfff8f0, 8, 30, Math.PI / 5, 0.25); k1.position.set(6, 8, 4); k1.castShadow = true; scene.add(k1);
   const k2 = new THREE.PointLight(0x5588ff, 2, 18); k2.position.set(-6, 4, -5); scene.add(k2);
   const k3 = new THREE.PointLight(0xffd080, 1.5, 14); k3.position.set(3, -2, 6); scene.add(k3);
 
@@ -560,7 +560,7 @@ function buildBeautyScene(
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.5;
 
-  const scene = new THREE.Scene();
+  const scene = new THREE.Scene(); scene.background = new THREE.Color(0x080810);
   const camera = new THREE.PerspectiveCamera(36, W / H, 0.1, 60);
   camera.position.set(0, 1.0, 8);
 
@@ -626,7 +626,7 @@ function buildBeautyScene(
   scene.add(new THREE.Points(pg, new THREE.PointsMaterial({ color: ROSE_GOLD, size: 0.022, transparent: true, opacity: 0.4 })));
 
   /* lights */
-  scene.add(new THREE.AmbientLight(0xfff0f0, 0.5));
+  scene.add(new THREE.AmbientLight(0xfff0f0, 1.2));
   const key = new THREE.SpotLight(0xfff8f0, 4, 20, Math.PI / 5, 0.2); key.position.set(3, 6, 5); key.castShadow = true; scene.add(key);
   const fill2 = new THREE.PointLight(0xffd0e0, 2, 12); fill2.position.set(-4, 3, 3); scene.add(fill2);
   const under = new THREE.PointLight(ROSE_GOLD, 1.2, 8); under.position.set(0, -3, 2); scene.add(under);
@@ -664,7 +664,7 @@ function buildGymScene(
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.2;
 
-  const scene = new THREE.Scene();
+  const scene = new THREE.Scene(); scene.background = new THREE.Color(0x0c0a08);
   const camera = new THREE.PerspectiveCamera(46, W / H, 0.1, 100);
   camera.position.set(0, 5, 14);
 
@@ -748,7 +748,7 @@ function buildGymScene(
     seam.rotation.y = rot; ball.add(seam);
   });
 
-  scene.add(new THREE.AmbientLight(0x445566, 0.4));
+  scene.add(new THREE.AmbientLight(0x8899bb, 1.1));
 
   const onResize = () => {
     const w = canvas.clientWidth, h = canvas.clientHeight;
@@ -784,7 +784,7 @@ function buildHotelScene(
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.1;
 
-  const scene = new THREE.Scene();
+  const scene = new THREE.Scene(); scene.background = new THREE.Color(0x060c0c);
   const camera = new THREE.PerspectiveCamera(42, W / H, 0.1, 60);
   camera.position.set(0, 2, 10);
 
@@ -872,7 +872,7 @@ function buildHotelScene(
   const rug = new THREE.Mesh(new THREE.PlaneGeometry(3.2, 1.8), m(0x7a5c42, 0.95));
   rug.rotation.x = -Math.PI / 2; rug.position.set(0, -2.48, 1.5); scene.add(rug);
 
-  scene.add(new THREE.AmbientLight(0x1a1208, 0.5));
+  scene.add(new THREE.AmbientLight(0x5a4030, 1.3));
 
   const onResize = () => {
     const w = canvas.clientWidth, h = canvas.clientHeight;
@@ -995,9 +995,9 @@ const USE_CASES = [
 function StatBadge({ value, suffix, label, active }: { value: number; suffix: string; label: string; active: boolean }) {
   const count = useCountUp(value, 900, active);
   return (
-    <div style={{ flex: 1, minWidth: 80, background: "rgba(200,168,75,0.06)", border: "1px solid rgba(200,168,75,0.16)", borderRadius: 10, padding: "14px 10px", textAlign: "center" }}>
-      <div style={{ fontWeight: 900, fontSize: "1.35rem", color: "#c8a84b", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>{count}{suffix}</div>
-      <div style={{ fontSize: 9, color: "var(--text-muted)", fontFamily: "monospace", marginTop: 5, letterSpacing: "0.08em", textTransform: "uppercase" }}>{label}</div>
+    <div className="uc-stat-badge">
+      <div className="uc-stat-value">{count}{suffix}</div>
+      <div className="uc-stat-label">{label}</div>
     </div>
   );
 }
@@ -1017,7 +1017,10 @@ export default function UseCasesPage() {
   }, [active]);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(([e]) => { if (e.isIntersecting) setStatsVisible(true); }, { threshold: 0.3 });
+    const observer = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) setStatsVisible(true); },
+      { threshold: 0.3 }
+    );
     if (statsRef.current) observer.observe(statsRef.current);
     return () => observer.disconnect();
   }, []);
@@ -1027,31 +1030,37 @@ export default function UseCasesPage() {
   return (
     <>
       <Navbar />
-      <main className="flex-1 relative z-10" style={{ paddingTop: 90 }}>
+      <main className="flex-1 relative z-10 uc-page">
+
+        {/* ── Ambient glow layer ── */}
+        <div className="uc-ambient" aria-hidden="true">
+          <div className="uc-glow uc-glow-1" />
+          <div className="uc-glow uc-glow-2" />
+        </div>
 
         {/* ── Hero ── */}
-        <section style={{ maxWidth: 860, margin: "0 auto", padding: "56px 24px 40px", textAlign: "center" }}>
-          <div className="section-label mx-auto" style={{ marginBottom: 20 }}>
-            <span style={{ color: "var(--primary)" }}>◆</span> Real-World Use Cases
+        <section className="uc-hero">
+          <div className="section-label mx-auto">
+            <span style={{ color: "var(--primary)" }}>◆</span>&nbsp;Real-World Use Cases
           </div>
-          <h1 style={{ fontSize: "clamp(2rem, 5.5vw, 3.6rem)", fontWeight: 900, lineHeight: 1.08, marginBottom: 20, letterSpacing: "-0.03em" }}>
-            <span className="gradient-text">3D Experiences</span> Your Business
-            <br />Can Deploy Tomorrow
+          <h1 className="uc-hero-heading">
+            <span className="gradient-text">3D Experiences</span> Your
+            <br />Business Can Deploy
           </h1>
-          <p style={{ fontSize: "clamp(0.9rem, 2vw, 1.05rem)", color: "var(--text-secondary)", lineHeight: 1.78, maxWidth: 600, margin: "0 auto 32px" }}>
-            Forget decorative spinning cubes. These are production-grade 3D web interactions — live demos built with WebGL, running natively in your browser, for real businesses in every industry.
+          <p className="uc-hero-sub">
+            Forget decorative cubes. These are production-grade 3D web
+            interactions — live WebGL demos, running natively in your
+            browser, for real businesses in every industry.
           </p>
-          {/* industry pills */}
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 8, justifyContent: "center" }}>
+
+          {/* Industry pill filters */}
+          <div className="uc-pills">
             {USE_CASES.map((u, i) => (
-              <button key={u.id} onClick={() => setActive(i)} style={{
-                fontSize: 11, padding: "6px 14px", borderRadius: 20, cursor: "pointer",
-                background: active === i ? "var(--primary)" : "rgba(255,255,255,0.04)",
-                color: active === i ? "#000" : "var(--text-secondary)",
-                border: active === i ? "1px solid var(--primary)" : "1px solid rgba(255,255,255,0.1)",
-                fontWeight: active === i ? 700 : 500,
-                transition: "all 0.22s", fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.04em",
-              }}>
+              <button
+                key={u.id}
+                onClick={() => setActive(i)}
+                className={`uc-pill${active === i ? " uc-pill--active" : ""}`}
+              >
                 {u.industry.split(" ")[0]}
               </button>
             ))}
@@ -1059,53 +1068,43 @@ export default function UseCasesPage() {
         </section>
 
         {/* ── Main interactive section ── */}
-        <section style={{ maxWidth: 1240, margin: "0 auto", padding: "0 20px 100px" }}>
-          <div className="uc-main-grid" style={{ display: "grid", gridTemplateColumns: "280px 1fr", gap: 28, alignItems: "start" }}>
+        <section className="uc-section">
+          <div className="uc-main-grid">
 
-            {/* Left: industry selector */}
-            <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
-              <div style={{ fontSize: 9, color: "var(--text-muted)", fontFamily: "monospace", letterSpacing: "0.15em", marginBottom: 8, paddingLeft: 2 }}>
-                SELECT INDUSTRY →
-              </div>
+            {/* Left: industry selector sidebar */}
+            <aside className="uc-sidebar">
+              <div className="uc-sidebar-label">Select Industry</div>
               {USE_CASES.map((u, i) => (
-                <button key={u.id} id={`use-case-${u.id}`} onClick={() => setActive(i)} className="text-left" style={{
-                  padding: "11px 14px",
-                  background: active === i ? "rgba(200,168,75,0.06)" : "rgba(255,255,255,0.02)",
-                  border: `1px solid ${active === i ? "rgba(200,168,75,0.3)" : "rgba(255,255,255,0.07)"}`,
-                  borderLeft: active === i ? "3px solid #c8a84b" : "3px solid transparent",
-                  borderRadius: 10, cursor: "pointer", transition: "all 0.22s ease",
-                }}>
-                  <div style={{ fontSize: 8, color: active === i ? "#c8a84b" : "var(--text-muted)", fontFamily: "monospace", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 3 }}>
-                    {u.industry}
-                  </div>
-                  <div style={{ fontSize: 13, fontWeight: 700, color: active === i ? "var(--text-primary)" : "var(--text-secondary)", transition: "color 0.22s" }}>
-                    {u.title}
-                  </div>
+                <button
+                  key={u.id}
+                  id={`use-case-${u.id}`}
+                  onClick={() => setActive(i)}
+                  className={`uc-sidebar-item${active === i ? " uc-sidebar-item--active" : ""}`}
+                >
+                  <span className="uc-sidebar-cat">{u.industry}</span>
+                  <span className="uc-sidebar-title">{u.title}</span>
                 </button>
               ))}
-            </div>
+            </aside>
 
             {/* Right: 3D scene + details */}
-            <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+            <div className="uc-content">
 
               {/* 3D canvas card */}
-              <div className="glass-card" style={{ height: 400, overflow: "hidden", position: "relative" }}>
-                {/* corner brackets (gold accent) */}
-                {["top-0 left-0 border-t-2 border-l-2 rounded-tl-lg","top-0 right-0 border-t-2 border-r-2 rounded-tr-lg","bottom-0 left-0 border-b-2 border-l-2 rounded-bl-lg","bottom-0 right-0 border-b-2 border-r-2 rounded-br-lg"].map((cls, k) => (
-                  <div key={k} className={`absolute w-6 h-6 ${cls} z-20`} style={{ borderColor: "rgba(200,168,75,0.5)" }} />
-                ))}
+              <div className="uc-canvas-wrap">
+                {/* Corner brackets */}
+                <div className="uc-corner uc-corner-tl" />
+                <div className="uc-corner uc-corner-tr" />
+                <div className="uc-corner uc-corner-bl" />
+                <div className="uc-corner uc-corner-br" />
 
-                {/* interaction tag */}
-                <div style={{ position: "absolute", top: 14, right: 14, zIndex: 10, fontSize: 9, padding: "4px 11px", background: "rgba(0,0,0,0.6)", border: "1px solid rgba(200,168,75,0.3)", borderRadius: 6, color: "#c8a84b", fontFamily: "monospace", letterSpacing: "0.1em" }}>
-                  {uc.tag}
-                </div>
-                {/* industry label */}
-                <div style={{ position: "absolute", top: 14, left: 14, zIndex: 10, fontSize: 8, padding: "4px 10px", background: "rgba(0,0,0,0.55)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 6, color: "var(--text-muted)", fontFamily: "monospace", letterSpacing: "0.08em" }}>
-                  {uc.industry.toUpperCase()}
-                </div>
-                {/* live dot */}
-                <div style={{ position: "absolute", bottom: 14, left: 14, zIndex: 10, display: "flex", alignItems: "center", gap: 6, fontSize: 9, fontFamily: "monospace", color: "rgba(200,168,75,0.75)" }}>
-                  <span style={{ width: 6, height: 6, borderRadius: "50%", background: "rgba(200,168,75,0.9)", animation: "pulse 2s infinite" }} />
+                {/* HUD: tag top-right */}
+                <div className="uc-hud uc-hud-tag">{uc.tag}</div>
+                {/* HUD: industry top-left */}
+                <div className="uc-hud uc-hud-industry">{uc.industry.toUpperCase()}</div>
+                {/* HUD: live dot bottom-left */}
+                <div className="uc-hud uc-hud-live">
+                  <span className="uc-live-dot" />
                   LIVE 3D · DRAG TO ORBIT
                 </div>
 
@@ -1114,64 +1113,79 @@ export default function UseCasesPage() {
               </div>
 
               {/* Details card */}
-              <div className="glass-card" style={{ padding: "28px 30px" }}>
-                <h2 style={{ fontSize: "1.45rem", fontWeight: 900, color: "var(--text-primary)", marginBottom: 12, letterSpacing: "-0.025em" }}>
-                  {uc.title}
-                </h2>
-                <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)", lineHeight: 1.84, marginBottom: 24 }}>
-                  {uc.description}
-                </p>
-                {/* animated stats */}
-                <div ref={statsRef} style={{ display: "flex", gap: 12, marginBottom: 24 }}>
+              <div className="uc-details glass-card">
+                <h2 className="uc-details-title">{uc.title}</h2>
+                <p className="uc-details-desc">{uc.description}</p>
+
+                {/* Animated stats */}
+                <div className="uc-stats" ref={statsRef}>
                   {uc.impact.map((imp, i) => (
-                    <StatBadge key={i} value={imp.value} suffix={imp.suffix} label={imp.label} active={statsVisible} />
+                    <StatBadge
+                      key={i}
+                      value={imp.value}
+                      suffix={imp.suffix}
+                      label={imp.label}
+                      active={statsVisible}
+                    />
                   ))}
                 </div>
-                <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-                  <a href="/#contact" className="btn-primary" style={{ fontSize: 13, display: "inline-flex", gap: 8, alignItems: "center" }} id={`cta-${uc.id}`}>
+
+                <div className="uc-ctas">
+                  <a
+                    href="/#contact"
+                    className="btn-primary"
+                    id={`cta-${uc.id}`}
+                  >
                     <span>Build This For My Business</span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
                   </a>
-                  <a href="/showcase" className="btn-secondary" style={{ fontSize: 13, display: "inline-flex", gap: 8, alignItems: "center" }}>
+                  <a href="/showcase" className="btn-secondary">
                     <span>View 3D Gallery</span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
                   </a>
                 </div>
               </div>
-            </div>
-          </div>
+            </div>{/* /uc-content */}
+          </div>{/* /uc-main-grid */}
         </section>
 
         {/* ── Trust strip ── */}
-        <section style={{ borderTop: "1px solid rgba(255,255,255,0.06)", borderBottom: "1px solid rgba(255,255,255,0.06)", padding: "32px 24px" }}>
-          <div style={{ display: "flex", gap: 48, justifyContent: "center", flexWrap: "wrap" }}>
-            {[["7+","Industries Covered"],["60fps","Performance"],["100%","Custom Built"],["0","External App Required"],["∞","Design Possibilities"]].map(([v, l], i) => (
-              <div key={i} style={{ textAlign: "center" }}>
-                <div style={{ fontWeight: 900, fontSize: "1.6rem", color: "#c8a84b", lineHeight: 1 }}>{v}</div>
-                <div style={{ fontSize: 10, color: "var(--text-muted)", fontFamily: "monospace", marginTop: 5, letterSpacing: "0.08em" }}>{l}</div>
+        <section className="uc-trust">
+          {[["7+","Industries"],["60fps","Performance"],["100%","Custom Built"],["0","Plugin Required"],["∞","Possibilities"]].map(
+            ([v, l], i) => (
+              <div key={i} className="uc-trust-item">
+                <div className="uc-trust-val">{v}</div>
+                <div className="uc-trust-lbl">{l}</div>
               </div>
-            ))}
-          </div>
+            )
+          )}
         </section>
 
         {/* ── Bottom CTA ── */}
-        <section style={{ padding: "80px 24px", textAlign: "center" }}>
-          <div style={{ maxWidth: 680, margin: "0 auto" }}>
-            <div className="section-label mx-auto" style={{ marginBottom: 24 }}>
-              <span style={{ color: "var(--primary)" }}>◆</span> Your Industry Not Listed?
+        <section className="uc-cta-section">
+          <div className="uc-cta-inner">
+            <div className="section-label mx-auto">
+              <span style={{ color: "var(--primary)" }}>◆</span>&nbsp;Your Industry Not Listed?
             </div>
-            <h2 style={{ fontSize: "clamp(1.7rem, 4vw, 2.8rem)", fontWeight: 900, color: "var(--text-primary)", marginBottom: 18, letterSpacing: "-0.025em", lineHeight: 1.12 }}>
-              We Build Custom 3D Experiences<br />
+            <h2 className="uc-cta-heading">
+              We Build Custom 3D Experiences
+              <br />
               <span className="gradient-text">For Any Business Vertical</span>
             </h2>
-            <p style={{ color: "var(--text-secondary)", fontSize: "0.95rem", lineHeight: 1.82, marginBottom: 36 }}>
-              From clinic appointment systems to law-firm case visualisers — if your business has a web presence, we can upgrade it with a 3D experience that converts.
+            <p className="uc-cta-sub">
+              From clinic appointment systems to law-firm case
+              visualisers — if your business has a web presence, we can
+              upgrade it with a 3D experience that converts.
             </p>
-            <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-              <a href="/#contact" className="btn-primary" id="bottom-cta-contact" style={{ fontSize: 14 }}>
+            <div className="uc-ctas uc-ctas--center">
+              <a href="/#contact" className="btn-primary" id="bottom-cta-contact">
                 <span>Get a Free Consultation</span>
               </a>
-              <a href="/showcase" className="btn-secondary" id="bottom-cta-gallery" style={{ fontSize: 14 }}>
+              <a href="/showcase" className="btn-secondary" id="bottom-cta-gallery">
                 <span>View Full 3D Gallery</span>
               </a>
             </div>
@@ -1182,20 +1196,333 @@ export default function UseCasesPage() {
       <Footer />
 
       <style>{`
-        @keyframes pulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.3; }
+        /* ── page shell ── */
+        .uc-page { padding-top: 90px; }
+
+        /* ── ambient glows ── */
+        .uc-ambient { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+        .uc-glow {
+          position: absolute; border-radius: 50%;
+          filter: blur(120px); pointer-events: none;
         }
-        @media (max-width: 860px) {
-          .uc-main-grid { grid-template-columns: 1fr !important; }
-          .uc-main-grid > div:first-child {
-            display: flex !important;
-            flex-direction: row !important;
-            overflow-x: auto !important;
-            gap: 6px !important;
-            padding-bottom: 6px;
+        .uc-glow-1 {
+          top: 5%; left: -10%; width: 600px; height: 600px;
+          background: radial-gradient(circle, rgba(102,242,9,0.055) 0%, transparent 70%);
+          animation: uc-drift 18s ease-in-out infinite;
+        }
+        .uc-glow-2 {
+          bottom: 10%; right: -5%; width: 500px; height: 500px;
+          background: radial-gradient(circle, rgba(0,240,255,0.04) 0%, transparent 70%);
+          animation: uc-drift 22s ease-in-out 4s infinite reverse;
+        }
+        @keyframes uc-drift {
+          0%,100% { transform: translate(0,0) scale(1); }
+          50% { transform: translate(30px,-20px) scale(1.06); }
+        }
+
+        /* ── hero ── */
+        .uc-hero {
+          position: relative; z-index: 1;
+          max-width: 860px; margin: 0 auto;
+          padding: 64px 24px 44px;
+          text-align: center;
+          display: flex; flex-direction: column; align-items: center; gap: 0;
+        }
+        .uc-hero .section-label { margin-bottom: 24px; }
+        .uc-hero-heading {
+          font-size: clamp(2.2rem, 5.8vw, 3.8rem);
+          font-weight: 900; line-height: 1.06;
+          letter-spacing: -0.035em;
+          margin: 0 0 22px;
+          color: var(--text-primary);
+        }
+        .uc-hero-sub {
+          font-size: clamp(0.9rem, 2vw, 1.05rem);
+          color: var(--text-secondary);
+          line-height: 1.8;
+          max-width: 580px;
+          margin: 0 auto 36px;
+        }
+
+        /* ── pill filters ── */
+        .uc-pills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+        .uc-pill {
+          font-size: 11px; padding: 6px 16px; border-radius: 20px;
+          cursor: pointer; font-family: var(--font-mono, monospace);
+          letter-spacing: 0.06em; font-weight: 600;
+          border: 1px solid rgba(255,255,255,0.1);
+          background: rgba(255,255,255,0.03);
+          color: var(--text-muted);
+          transition: all 0.22s ease;
+        }
+        .uc-pill:hover { color: var(--text-primary); border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.06); }
+        .uc-pill--active {
+          background: var(--primary) !important;
+          color: #000 !important;
+          border-color: var(--primary) !important;
+          font-weight: 800 !important;
+          box-shadow: 0 0 18px rgba(102,242,9,0.3);
+        }
+
+        /* ── main section ── */
+        .uc-section {
+          position: relative; z-index: 1;
+          max-width: 1280px; margin: 0 auto;
+          padding: 0 24px 100px;
+        }
+        .uc-main-grid {
+          display: grid;
+          grid-template-columns: 272px 1fr;
+          gap: 28px;
+          align-items: start;
+        }
+
+        /* ── sidebar ── */
+        .uc-sidebar {
+          display: flex; flex-direction: column; gap: 4px;
+          position: sticky; top: 100px;
+        }
+        .uc-sidebar-label {
+          font-size: 9px; color: var(--text-muted);
+          font-family: monospace; letter-spacing: 0.18em;
+          text-transform: uppercase;
+          margin-bottom: 10px; padding-left: 3px;
+        }
+        .uc-sidebar-item {
+          text-align: left; padding: 12px 14px;
+          border-radius: 10px; cursor: pointer;
+          background: rgba(255,255,255,0.02);
+          border: 1px solid rgba(255,255,255,0.06);
+          border-left: 3px solid transparent;
+          transition: all 0.22s ease;
+          display: flex; flex-direction: column; gap: 3px;
+        }
+        .uc-sidebar-item:hover {
+          background: rgba(255,255,255,0.04);
+          border-color: rgba(255,255,255,0.1);
+          border-left-color: rgba(200,168,75,0.4);
+        }
+        .uc-sidebar-item--active {
+          background: rgba(200,168,75,0.07) !important;
+          border-color: rgba(200,168,75,0.25) !important;
+          border-left-color: #c8a84b !important;
+          box-shadow: inset 0 0 0 0.5px rgba(200,168,75,0.08);
+        }
+        .uc-sidebar-cat {
+          font-size: 8.5px; font-family: monospace;
+          letter-spacing: 0.1em; text-transform: uppercase;
+          color: var(--text-muted);
+          transition: color 0.2s;
+        }
+        .uc-sidebar-item--active .uc-sidebar-cat { color: #c8a84b; }
+        .uc-sidebar-title {
+          font-size: 13px; font-weight: 700;
+          color: var(--text-secondary);
+          transition: color 0.2s;
+          line-height: 1.3;
+        }
+        .uc-sidebar-item--active .uc-sidebar-title { color: var(--text-primary); }
+
+        /* ── right content ── */
+        .uc-content { display: flex; flex-direction: column; gap: 20px; }
+
+        /* ── canvas wrapper ── */
+        .uc-canvas-wrap {
+          position: relative; height: 430px; overflow: hidden;
+          border-radius: 14px;
+          border: 1px solid rgba(200,168,75,0.18);
+          background: rgba(5,10,20,0.7);
+          box-shadow:
+            0 0 0 1px rgba(200,168,75,0.08),
+            0 4px 40px rgba(0,0,0,0.5),
+            inset 0 1px 0 rgba(255,255,255,0.04);
+        }
+        .uc-canvas-wrap::before {
+          content: '';
+          position: absolute; inset: 0; z-index: 1; pointer-events: none;
+          background: radial-gradient(ellipse at 50% 0%, rgba(200,168,75,0.06) 0%, transparent 60%);
+        }
+
+        /* Corner brackets */
+        .uc-corner {
+          position: absolute; width: 20px; height: 20px;
+          z-index: 3; pointer-events: none;
+        }
+        .uc-corner-tl { top: 10px; left: 10px; border-top: 2px solid rgba(200,168,75,0.6); border-left: 2px solid rgba(200,168,75,0.6); border-radius: 3px 0 0 0; }
+        .uc-corner-tr { top: 10px; right: 10px; border-top: 2px solid rgba(200,168,75,0.6); border-right: 2px solid rgba(200,168,75,0.6); border-radius: 0 3px 0 0; }
+        .uc-corner-bl { bottom: 10px; left: 10px; border-bottom: 2px solid rgba(200,168,75,0.6); border-left: 2px solid rgba(200,168,75,0.6); border-radius: 0 0 0 3px; }
+        .uc-corner-br { bottom: 10px; right: 10px; border-bottom: 2px solid rgba(200,168,75,0.6); border-right: 2px solid rgba(200,168,75,0.6); border-radius: 0 0 3px 0; }
+
+        /* HUD overlays */
+        .uc-hud {
+          position: absolute; z-index: 4;
+          font-family: monospace; letter-spacing: 0.1em;
+          pointer-events: none;
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+        }
+        .uc-hud-tag {
+          top: 14px; right: 14px;
+          font-size: 9px; padding: 5px 12px;
+          background: rgba(0,0,0,0.7);
+          border: 1px solid rgba(200,168,75,0.35);
+          border-radius: 6px; color: #c8a84b;
+          text-transform: uppercase;
+        }
+        .uc-hud-industry {
+          top: 14px; left: 14px;
+          font-size: 8px; padding: 5px 10px;
+          background: rgba(0,0,0,0.6);
+          border: 1px solid rgba(255,255,255,0.1);
+          border-radius: 6px; color: var(--text-muted);
+          text-transform: uppercase;
+        }
+        .uc-hud-live {
+          bottom: 14px; left: 14px;
+          display: flex; align-items: center; gap: 7px;
+          font-size: 9px; color: rgba(200,168,75,0.8);
+          padding: 5px 10px;
+          background: rgba(0,0,0,0.55);
+          border: 1px solid rgba(200,168,75,0.15);
+          border-radius: 6px;
+        }
+        .uc-live-dot {
+          display: inline-block; width: 6px; height: 6px;
+          border-radius: 50%; background: #c8a84b;
+          box-shadow: 0 0 6px #c8a84b;
+          animation: uc-pulse-dot 2s ease-in-out infinite;
+        }
+        @keyframes uc-pulse-dot {
+          0%,100% { opacity: 1; box-shadow: 0 0 6px #c8a84b; }
+          50% { opacity: 0.4; box-shadow: 0 0 2px #c8a84b; }
+        }
+
+        /* ── details card ── */
+        .uc-details { padding: 28px 32px; }
+        .uc-details-title {
+          font-size: 1.5rem; font-weight: 900;
+          color: var(--text-primary); margin: 0 0 12px;
+          letter-spacing: -0.03em; line-height: 1.2;
+        }
+        .uc-details-desc {
+          font-size: 0.875rem; color: var(--text-secondary);
+          line-height: 1.85; margin: 0 0 24px;
+        }
+
+        /* ── stats grid ── */
+        .uc-stats { display: flex; gap: 12px; margin-bottom: 26px; }
+        .uc-stat-badge {
+          flex: 1; min-width: 80px;
+          text-align: center; padding: 16px 10px;
+          border-radius: 10px;
+          background: rgba(200,168,75,0.05);
+          border: 1px solid rgba(200,168,75,0.14);
+          transition: all 0.25s ease;
+          position: relative; overflow: hidden;
+        }
+        .uc-stat-badge::before {
+          content: ''; position: absolute;
+          top: 0; left: 0; right: 0; height: 2px;
+          background: linear-gradient(90deg, transparent, rgba(200,168,75,0.5), transparent);
+        }
+        .uc-stat-badge:hover {
+          background: rgba(200,168,75,0.09);
+          border-color: rgba(200,168,75,0.28);
+          transform: translateY(-2px);
+        }
+        .uc-stat-value {
+          font-weight: 900; font-size: 1.5rem;
+          color: #c8a84b; line-height: 1;
+          font-variant-numeric: tabular-nums;
+          letter-spacing: -0.02em;
+        }
+        .uc-stat-label {
+          font-size: 8.5px; color: var(--text-muted);
+          font-family: monospace; margin-top: 6px;
+          letter-spacing: 0.1em; text-transform: uppercase;
+        }
+
+        /* ── CTA row ── */
+        .uc-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+        .uc-ctas--center { justify-content: center; }
+
+        /* ── trust strip ── */
+        .uc-trust {
+          position: relative; z-index: 1;
+          display: flex; gap: 0; justify-content: center;
+          flex-wrap: wrap;
+          border-top: 1px solid rgba(255,255,255,0.05);
+          border-bottom: 1px solid rgba(255,255,255,0.05);
+          padding: 36px 24px;
+          background: linear-gradient(180deg, rgba(200,168,75,0.02) 0%, transparent 100%);
+        }
+        .uc-trust-item {
+          flex: 1; min-width: 120px; max-width: 200px;
+          text-align: center; padding: 0 24px;
+          border-right: 1px solid rgba(255,255,255,0.05);
+        }
+        .uc-trust-item:last-child { border-right: none; }
+        .uc-trust-val {
+          font-weight: 900; font-size: 2rem;
+          color: #c8a84b; line-height: 1;
+          letter-spacing: -0.03em;
+        }
+        .uc-trust-lbl {
+          font-size: 10px; color: var(--text-muted);
+          font-family: monospace; margin-top: 6px;
+          letter-spacing: 0.1em; text-transform: uppercase;
+        }
+
+        /* ── bottom CTA section ── */
+        .uc-cta-section {
+          position: relative; z-index: 1;
+          padding: 100px 24px;
+          text-align: center;
+        }
+        .uc-cta-inner {
+          max-width: 700px; margin: 0 auto;
+          display: flex; flex-direction: column; align-items: center; gap: 0;
+        }
+        .uc-cta-inner .section-label { margin-bottom: 28px; }
+        .uc-cta-heading {
+          font-size: clamp(1.8rem, 4vw, 3rem);
+          font-weight: 900; color: var(--text-primary);
+          margin: 0 0 20px;
+          letter-spacing: -0.03em; line-height: 1.1;
+        }
+        .uc-cta-sub {
+          color: var(--text-secondary); font-size: 0.95rem;
+          line-height: 1.85; margin: 0 0 40px;
+          max-width: 560px;
+        }
+
+        /* ── responsive ── */
+        @media (max-width: 900px) {
+          .uc-main-grid {
+            grid-template-columns: 1fr !important;
           }
-          .uc-main-grid > div:first-child > div:first-child { display: none; }
+          .uc-sidebar {
+            position: static;
+            flex-direction: row;
+            overflow-x: auto;
+            gap: 5px;
+            padding-bottom: 4px;
+          }
+          .uc-sidebar-label { display: none; }
+          .uc-sidebar-item {
+            flex-direction: row;
+            align-items: center;
+            gap: 6px;
+            flex-shrink: 0;
+            padding: 9px 12px;
+          }
+          .uc-sidebar-cat { display: none; }
+          .uc-trust-item { border-right: none; padding: 12px 16px; }
+        }
+        @media (max-width: 480px) {
+          .uc-canvas-wrap { height: 300px; }
+          .uc-stats { flex-wrap: wrap; }
+          .uc-stat-badge { min-width: 70px; }
         }
       `}</style>
     </>
