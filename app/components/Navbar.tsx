@@ -6,7 +6,7 @@ import gsap from "gsap";
 const navLinks = [
   { label: "Why 3D", href: "/#why-3d" },
   { label: "Services", href: "/#services" },
-  { label: "Use Cases", href: "/#use-cases" },
+  { label: "Real Use Cases", href: "/use-cases" },
   { label: "3D Gallery", href: "/showcase" },
   { label: "Contact", href: "/#contact" },
 ];
