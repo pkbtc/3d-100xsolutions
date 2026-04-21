@@ -28,7 +28,7 @@ function useCountUp(target: number, duration = 1100, start = false) {
 ───────────────────────────────────────── */
 type SceneBuilderFn = (
   THREE: typeof import("three"),
-  OC: import("three/examples/jsm/controls/OrbitControls.js")["OrbitControls"],
+  OC: typeof import("three/examples/jsm/controls/OrbitControls.js")["OrbitControls"],
   canvas: HTMLCanvasElement
 ) => { cleanup: () => void };
 
@@ -59,7 +59,7 @@ function ThreeCanvas({ builder, id }: { builder: SceneBuilderFn; id: string }) {
 ─────────────────────────────────────────────────────── */
 function buildEcommerceScene(
   THREE: typeof import("three"),
-  OC: import("three/examples/jsm/controls/OrbitControls.js")["OrbitControls"],
+  OC: typeof import("three/examples/jsm/controls/OrbitControls.js")["OrbitControls"],
   canvas: HTMLCanvasElement
 ) {
   const W = canvas.clientWidth || 600;
@@ -188,7 +188,7 @@ function buildEcommerceScene(
 ─────────────────────────────────────────────────────── */
 function buildRealEstateScene(
   THREE: typeof import("three"),
-  OC: import("three/examples/jsm/controls/OrbitControls.js")["OrbitControls"],
+  OC: typeof import("three/examples/jsm/controls/OrbitControls.js")["OrbitControls"],
   canvas: HTMLCanvasElement
 ) {
   const W = canvas.clientWidth || 600, H = canvas.clientHeight || 380;
@@ -309,7 +309,7 @@ function buildRealEstateScene(
 ─────────────────────────────────────────────────────── */
 function buildRestaurantScene(
   THREE: typeof import("three"),
-  OC: import("three/examples/jsm/controls/OrbitControls.js")["OrbitControls"],
+  OC: typeof import("three/examples/jsm/controls/OrbitControls.js")["OrbitControls"],
   canvas: HTMLCanvasElement
 ) {
   const W = canvas.clientWidth || 600, H = canvas.clientHeight || 380;
@@ -427,7 +427,7 @@ function buildRestaurantScene(
 ─────────────────────────────────────────────────────── */
 function buildCarScene(
   THREE: typeof import("three"),
-  OC: import("three/examples/jsm/controls/OrbitControls.js")["OrbitControls"],
+  OC: typeof import("three/examples/jsm/controls/OrbitControls.js")["OrbitControls"],
   canvas: HTMLCanvasElement
 ) {
   const W = canvas.clientWidth || 600, H = canvas.clientHeight || 380;
@@ -549,7 +549,7 @@ function buildCarScene(
 ─────────────────────────────────────────────────────── */
 function buildBeautyScene(
   THREE: typeof import("three"),
-  OC: import("three/examples/jsm/controls/OrbitControls.js")["OrbitControls"],
+  OC: typeof import("three/examples/jsm/controls/OrbitControls.js")["OrbitControls"],
   canvas: HTMLCanvasElement
 ) {
   const W = canvas.clientWidth || 600, H = canvas.clientHeight || 380;
@@ -653,7 +653,7 @@ function buildBeautyScene(
 ─────────────────────────────────────────────────────── */
 function buildGymScene(
   THREE: typeof import("three"),
-  OC: import("three/examples/jsm/controls/OrbitControls.js")["OrbitControls"],
+  OC: typeof import("three/examples/jsm/controls/OrbitControls.js")["OrbitControls"],
   canvas: HTMLCanvasElement
 ) {
   const W = canvas.clientWidth || 600, H = canvas.clientHeight || 380;
@@ -773,7 +773,7 @@ function buildGymScene(
 ─────────────────────────────────────────────────────── */
 function buildHotelScene(
   THREE: typeof import("three"),
-  OC: import("three/examples/jsm/controls/OrbitControls.js")["OrbitControls"],
+  OC: typeof import("three/examples/jsm/controls/OrbitControls.js")["OrbitControls"],
   canvas: HTMLCanvasElement
 ) {
   const W = canvas.clientWidth || 600, H = canvas.clientHeight || 380;
