@@ -13,7 +13,7 @@ const expectations = [
   {
     number: "01",
     title: "Free Discovery Call",
-    desc: "We'll discuss your vision, use case, and how 3D can elevate your brand — zero pressure.",
+    desc: "We'll discuss your vision, use case, and how 3D can elevate your brand - zero pressure.",
   },
   {
     number: "02",
@@ -199,7 +199,7 @@ export default function ContactSection() {
             style={{ color: "var(--text-secondary)" }}
           >
             Tell us what you&apos;re building, and we&apos;ll figure out how 3D
-            can make it unforgettable. No templates, no fluff — just precision-crafted
+            can make it unforgettable. No templates, no fluff - just precision-crafted
             immersive experiences.
           </p>
         </div>
@@ -330,7 +330,7 @@ export default function ContactSection() {
                   id="ct-message"
                   rows={5}
                   required
-                  placeholder="Describe what you'd like to build — a virtual tour, 3D product showcase, interactive building walkthrough…"
+                  placeholder="Describe what you'd like to build - a virtual tour, 3D product showcase, interactive building walkthrough…"
                   className="glass-input resize-none"
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}

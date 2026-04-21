@@ -9,21 +9,21 @@ const TABS = [
     id: "city",
     label: "City Block",
     icon: "🏙",
-    desc: "Architectural visualization — fly through entire city blocks before construction begins.",
+    desc: "Architectural visualization - fly through entire city blocks before construction begins.",
     stats: [{ v: "40+", l: "Buildings" }, { v: "360°", l: "View" }, { v: "Real-time", l: "Render" }],
   },
   {
     id: "product",
     label: "Product 360°",
     icon: "📦",
-    desc: "Interactive product configurator — customers inspect, rotate and customise from every angle.",
+    desc: "Interactive product configurator - customers inspect, rotate and customise from every angle.",
     stats: [{ v: "∞", l: "Rotation" }, { v: "4K", l: "Detail" }, { v: "AR-ready", l: "Export" }],
   },
   {
     id: "data",
     label: "Data World",
     icon: "🌐",
-    desc: "Immersive data visualisation — turn abstract numbers into captivating 3D experiences.",
+    desc: "Immersive data visualisation - turn abstract numbers into captivating 3D experiences.",
     stats: [{ v: "2K+", l: "Particles" }, { v: "Live", l: "Animation" }, { v: "60fps", l: "Smooth" }],
   },
 ];
@@ -141,15 +141,15 @@ export default function ShowcaseSection() {
 
         // Buildings
         const buildings = [
-          { x: 0,    z: 0,    w: 1.4, h: 6,   d: 1.4, color: 0x0d2b0d },
-          { x: -2.5, z: -1,   w: 1.0, h: 4.2, d: 1.0, color: 0x091a09 },
-          { x: 2.5,  z: -0.5, w: 1.1, h: 3.8, d: 1.1, color: 0x0b200b },
-          { x: -4,   z: 1,    w: 0.8, h: 5.1, d: 0.8, color: 0x0a1a0a },
-          { x: 4,    z: 0.5,  w: 0.9, h: 4.6, d: 0.9, color: 0x0c220c },
-          { x: -1.2, z: 2.5,  w: 0.7, h: 2.8, d: 0.7, color: 0x081508 },
-          { x: 1.5,  z: 3,    w: 0.8, h: 3.2, d: 0.8, color: 0x091808 },
-          { x: -5.5, z: -2,   w: 1.2, h: 3.9, d: 1.0, color: 0x0a1c0a },
-          { x: 5.5,  z: -1.5, w: 1.0, h: 5.5, d: 1.0, color: 0x0d2a0d },
+          { x: 0, z: 0, w: 1.4, h: 6, d: 1.4, color: 0x0d2b0d },
+          { x: -2.5, z: -1, w: 1.0, h: 4.2, d: 1.0, color: 0x091a09 },
+          { x: 2.5, z: -0.5, w: 1.1, h: 3.8, d: 1.1, color: 0x0b200b },
+          { x: -4, z: 1, w: 0.8, h: 5.1, d: 0.8, color: 0x0a1a0a },
+          { x: 4, z: 0.5, w: 0.9, h: 4.6, d: 0.9, color: 0x0c220c },
+          { x: -1.2, z: 2.5, w: 0.7, h: 2.8, d: 0.7, color: 0x081508 },
+          { x: 1.5, z: 3, w: 0.8, h: 3.2, d: 0.8, color: 0x091808 },
+          { x: -5.5, z: -2, w: 1.2, h: 3.9, d: 1.0, color: 0x0a1c0a },
+          { x: 5.5, z: -1.5, w: 1.0, h: 5.5, d: 1.0, color: 0x0d2a0d },
         ];
 
         buildings.forEach(({ x, z, w, h, d, color }) => {
@@ -580,7 +580,7 @@ export default function ShowcaseSection() {
     if (sceneRef.current && !isLoading) {
       sceneRef.current.switchScene(activeTab);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeTab]);
 
   const activeData = TABS.find((t) => t.id === activeTab)!;
@@ -607,7 +607,7 @@ export default function ShowcaseSection() {
             <span className="gradient-text">Experience 3D.</span>
           </h2>
           <p className="text-base md:text-lg max-w-xl mx-auto" style={{ color: "var(--text-secondary)" }}>
-            Real WebGL in your browser — this is what we build for businesses like yours.
+            Real WebGL in your browser - this is what we build for businesses like yours.
           </p>
         </div>
 

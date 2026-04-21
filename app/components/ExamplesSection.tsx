@@ -13,7 +13,7 @@ const examples = [
     title: "Virtual Restaurant Tour",
     category: "Restaurant",
     description:
-      "Explore a fine-dining restaurant in full 3D — from the entrance lobby to private dining rooms. Preview the ambiance before reservation.",
+      "Explore a fine-dining restaurant in full 3D - from the entrance lobby to private dining rooms. Preview the ambiance before reservation.",
     url: "https://www.matterport.com/industries/restaurants",
     icon: (
       <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
@@ -65,7 +65,7 @@ export default function ExamplesSection() {
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       // Header
-      gsap.fromTo(".examples-header", 
+      gsap.fromTo(".examples-header",
         { y: 50, opacity: 0 },
         {
           scrollTrigger: {
@@ -83,7 +83,7 @@ export default function ExamplesSection() {
       // Cards slide in from alternating sides
       const cards = gsap.utils.toArray<HTMLElement>(".example-card");
       cards.forEach((card, i) => {
-        gsap.fromTo(card, 
+        gsap.fromTo(card,
           { x: i % 2 === 0 ? -60 : 60, y: 30, opacity: 0 },
           {
             scrollTrigger: {
@@ -101,7 +101,7 @@ export default function ExamplesSection() {
       });
 
       // Note text
-      gsap.fromTo(".examples-note", 
+      gsap.fromTo(".examples-note",
         { opacity: 0, y: 20 },
         {
           scrollTrigger: {

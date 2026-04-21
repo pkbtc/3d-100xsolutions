@@ -50,7 +50,7 @@ const services = [
     ),
     title: "3D Product Showcases",
     description:
-      "Interactive 3D models of your products — cars, furniture, electronics. 360° rotation, zoom, and customization at their fingertips.",
+      "Interactive 3D models of your products - cars, furniture, electronics. 360° rotation, zoom, and customization at their fingertips.",
     features: ["360° Rotation", "Zoom & Inspect", "Color Customization", "AR Preview"],
   },
   {
@@ -84,7 +84,7 @@ export default function ServicesSection() {
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       // Header
-      gsap.fromTo(".services-header", 
+      gsap.fromTo(".services-header",
         { y: 50, opacity: 0 },
         {
           scrollTrigger: {
@@ -100,7 +100,7 @@ export default function ServicesSection() {
       );
 
       // Cards — stagger from alternating sides
-      gsap.fromTo(".service-card", 
+      gsap.fromTo(".service-card",
         { y: 50, opacity: 0, scale: 0.96 },
         {
           scrollTrigger: {
@@ -121,7 +121,7 @@ export default function ServicesSection() {
       );
 
       // Feature tags slide in
-      gsap.fromTo(".service-card .feature-tag", 
+      gsap.fromTo(".service-card .feature-tag",
         { x: -15, opacity: 0 },
         {
           scrollTrigger: {

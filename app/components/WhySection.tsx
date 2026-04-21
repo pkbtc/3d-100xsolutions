@@ -21,7 +21,7 @@ const reasons = [
     iconColor: "var(--primary)",
     title: "10x Customer Engagement",
     description:
-      "Interactive 3D experiences keep visitors on your site 3x longer than traditional websites. Users explore, rotate, and interact — creating emotional connections that drive conversions.",
+      "Interactive 3D experiences keep visitors on your site 3x longer than traditional websites. Users explore, rotate, and interact - creating emotional connections that drive conversions.",
     stat: "300%",
     statLabel: "longer session time",
   },
@@ -78,7 +78,7 @@ export default function WhySection() {
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       // Section header reveal
-      gsap.fromTo(".why-header", 
+      gsap.fromTo(".why-header",
         { y: 50, opacity: 0 },
         {
           scrollTrigger: {
@@ -94,7 +94,7 @@ export default function WhySection() {
       );
 
       // Cards staggered reveal
-      gsap.fromTo(".why-card", 
+      gsap.fromTo(".why-card",
         { y: 60, opacity: 0 },
         {
           scrollTrigger: {

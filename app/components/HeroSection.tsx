@@ -17,8 +17,8 @@ export default function HeroSection() {
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
       // Chips row
-      tl.fromTo(".hero-chips .chip", 
-        { y: 30, opacity: 0 }, 
+      tl.fromTo(".hero-chips .chip",
+        { y: 30, opacity: 0 },
         { y: 0, opacity: 1, stagger: 0.08, duration: 0.7 }
       );
 
@@ -207,7 +207,7 @@ export default function HeroSection() {
           <span className="font-semibold" style={{ color: "var(--accent)" }}>
             scroll to zoom
           </span>{" "}
-          — build a world beyond the 2D surface.
+          - build a world beyond the 2D surface.
         </p>
 
         {/* CTA buttons */}
